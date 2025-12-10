@@ -7,6 +7,9 @@ body {
 #mainDiv {
   width: 500px;
   height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border: solid black;
   background-color: rgb(40, 40, 132);
 }
@@ -14,4 +17,15 @@ body {
 .btn {
   width: 50px;
   height: 40px;
+}
+
+#display {
+  width: auto;
+  background-color: white;
+  margin-bottom: 5px;
+}
+
+#buttonsDiv {
+  padding: 10px;
+  border: solid black;
 }
