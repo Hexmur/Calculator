@@ -71,6 +71,7 @@ buttons.forEach((button) => {
       let b = parseInt( displayStr.substring(displayStr.indexOf(opertaorTyped)+1, displayStr.length) );
       console.log(a + opertaorTyped + b);
       console.log(operate(a,b,opertaorTyped));
+      display.textContent = operate(a,b,opertaorTyped);
     }
   })
 })
