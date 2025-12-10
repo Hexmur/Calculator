@@ -10,3 +10,8 @@ body {
   border: solid black;
   background-color: rgb(40, 40, 132);
 }
+
+.btn {
+  width: 50px;
+  height: 40px;
+}
