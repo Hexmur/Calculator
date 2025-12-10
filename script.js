@@ -39,14 +39,26 @@ const display = container.querySelector("#display");
 
 let displayStr = display.textContent;
 let firstTime = true;
+let opPressed = false;
+
+let firstNumber = 0;
+let secondNumber = 0;
+let firstNumberTyped = false;
 
 buttons.forEach((button) => {
   button.addEventListener("click", () => {
-    if(firstTime === true){
+    if(firstTime === true && button.id != "opBtn"){
       firstTime = false;
       display.textContent = "";
     }
-    display.textContent += button.textContent;
-    displayStr = display.textContent;
+    if(button.id != "opBtn" && button.textContent != "clear"){
+      display.textContent += button.textContent;
+      displayStr = display.textContent;
+      firstNumberTyped = true;
+    } else if(opPressed === false && firstNumberTyped === true){
+      display.textContent += button.textContent;
+      displayStr = display.textContent;
+      opPressed = true;
+    }
   })
 })
