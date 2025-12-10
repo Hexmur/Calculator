@@ -1,5 +1,5 @@
 function sum(a, b){
-  return a + b;
+  return a+b;
 }
 
 function subtract(a, b){
@@ -43,7 +43,9 @@ let opPressed = false;
 
 let firstNumber = 0;
 let secondNumber = 0;
+let opertaorTyped = '';
 let firstNumberTyped = false;
+let secondNumberTyped = false;
 
 buttons.forEach((button) => {
   button.addEventListener("click", () => {
@@ -55,10 +57,20 @@ buttons.forEach((button) => {
       display.textContent += button.textContent;
       displayStr = display.textContent;
       firstNumberTyped = true;
-    } else if(opPressed === false && firstNumberTyped === true){
+      if(opPressed == true){
+        secondNumberTyped = true;
+      }
+    } else if(opPressed === false && firstNumberTyped === true
+        && button.textContent != '='){
       display.textContent += button.textContent;
       displayStr = display.textContent;
       opPressed = true;
+      opertaorTyped = button.textContent;
+    } else if(button.textContent === '=' && secondNumberTyped){
+      let a = parseInt( displayStr.substring(0, displayStr.indexOf(opertaorTyped)) );
+      let b = parseInt( displayStr.substring(displayStr.indexOf(opertaorTyped)+1, displayStr.length) );
+      console.log(a + opertaorTyped + b);
+      console.log(operate(a,b,opertaorTyped));
     }
   })
 })
